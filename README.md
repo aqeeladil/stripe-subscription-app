@@ -6,7 +6,7 @@ A simple subscription services application that uses Stripe as a payment method 
 
 ![Live Project](https://aqeeladil.site)
 
-![Project Demo Video](https://www.awesomescreenshot.com/video/30838159?key=ddc3f34d6f42938fa74ecbe0c07fabe2)
+[![Project Video](https://drive.google.com/file/d/1tk5LBcOWruZPJADfRj3wunygGIS7HIdh/view?usp=sharing)](https://www.awesomescreenshot.com/video/30838159?key=ddc3f34d6f42938fa74ecbe0c07fabe2)
 
 
 
