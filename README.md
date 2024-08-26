@@ -1,14 +1,9 @@
 ﻿# Stripe Subscription App
 A simple subscription services application that uses Stripe as a payment method and listens to live events using Stripe Webhooks.
 
-
 ### Live Demo
-
-![Live Project](https://aqeeladil.site)
-
-[![Project Video](https://drive.google.com/file/d/1tk5LBcOWruZPJADfRj3wunygGIS7HIdh/view?usp=sharing)](https://www.awesomescreenshot.com/video/30838159?key=ddc3f34d6f42938fa74ecbe0c07fabe2)
-
-
+You can view the live project [here](https://aqeeladil.site).
+For the video demo, [click here](https://www.awesomescreenshot.com/video/30838159?key=ddc3f34d6f42938fa74ecbe0c07fabe2).
 
 <br>
 **To run this locally, run these commands:**
