@@ -1,0 +1,73 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}
+Stripe Subscription App
+{% endblock %}
+
+{% block content %}
+<div class="text-center mt-4">
+    <h1>Welcome to Stripe Subscription Services</h1>
+
+    <div class="mt-4">
+        {% if user.is_authenticated %}
+            <h5>  Hello, {{ user.username }}! </h5>
+
+            <!-- Check if user has an active subscription -->
+            {% if active_subscription %}
+                <p>You are currently subscribed to the {{ active_subscription.plan.name}} Plan ({{ subscription_category }}) .</p>
+                <form action="{% url 'subscription_cancel' %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Cancel Subscription</button>
+                </form>
+            {% else %}
+                <p>You do not have an active subscription.</p>
+            {% endif %}
+        {% else %}
+
+        <p> You are not logged in. <a href="{% url 'login' %}"><b> Login here! </b></a> </p>
+        {% endif %}
+
+        <div class="mt-4 mb-4">
+            <h2>Available Plans</h2>
+        </div>
+
+
+        <div class="row">
+            {% for plan in plans %}
+            <div class="col-md-4">
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3>{{ plan.name }}</h3>
+                    </div>
+    
+                    <div class="card-body">
+                        <p><b>Monthly Price: ${{ plan.monthly_plan }}</b></p>
+                        <form method="POST" action="{% url 'create_checkout_session' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="stripe_plan_id" value="{{ plan.monthly_stripe_plan_id }}">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        <p><b>Yearly Price: ${{ plan.yearly_plan }}</b></p>
+                        <form method="POST" action="{% url 'create_checkout_session' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="stripe_plan_id" value="{{ plan.yearly_stripe_plan_id }}">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+            {% endfor %}
+            
+        </div>
+
+    </div>
+</div> 
+{% endblock %} 
+
+
+                            
